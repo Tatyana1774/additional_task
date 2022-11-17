@@ -14,6 +14,7 @@ int number = Convert.ToInt32(Console.ReadLine());
 if (number == randomNumber)
 {
 Console.WriteLine($"Вы угадали! Осталось {attempts-i} попыток");
+return;
 }
 
     else if (number > randomNumber)
