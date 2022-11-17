@@ -13,7 +13,7 @@ Console.WriteLine("Введите число");
 int number = Convert.ToInt32(Console.ReadLine());
 if (number == randomNumber)
 {
-Console.WriteLine($"Вы угадали! Осталось {attempts-i} попыток");
+Console.WriteLine($"Вы угадали! Осталось попыток: {attempts-i}");
 return;
 }
 
