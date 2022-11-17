@@ -13,26 +13,28 @@ Console.WriteLine("Введите число от 0 до 10: ");
       int number = Convert.ToInt32(Console.ReadLine());
       if (number == randomNumber)
       {
-      Console.WriteLine($"Вы угадали c {attempts} попытки:");
-      break;
+      Console.WriteLine($"Вы угадали c {attempts} попытки");
       }
       else if(number > randomNumber)
       {
       Console.WriteLine("Ваше число больше");
+      break;
       }
       else
       {
       Console.WriteLine("Ваше число меньше");
+      break;
       }
+        if (i == attempts)
+        {
+        Console.WriteLine("Попытки закончились");
+        break;
+        }
         if(number != randomNumber)
         {
         Console.WriteLine($"Неверно! Осталось попыток: {attempts - i}");
         Convert.ToInt32(Console.ReadLine());
         break;
         }
-          if (i == attempts)
-          {
-          Console.WriteLine("Попытки закончились");
-          break;
-          }
+    
       }
