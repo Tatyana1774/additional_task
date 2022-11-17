@@ -13,7 +13,7 @@ Console.WriteLine("Введите число от 0 до 10: ");
       int number = Convert.ToInt32(Console.ReadLine());
       if (number == randomNumber)
       {
-      Console.WriteLine($"Вы угадали c {attempts} попытки:");
+      Console.WriteLine($"Вы угадали c {attempts} попытки");
       break;
       }
       else if(number > randomNumber)
