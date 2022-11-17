@@ -27,13 +27,5 @@ return;
     Console.WriteLine($"Неверно! Загаданное число больше, чем {number}!  Осталось попыток: {attempts-i}");
     break;
     }
-if (number == randomNumber)
-    {
-    if (i == attempts)
-    {
-    Console.WriteLine("Попытки закончились");
-    break;
-    }
-  }
 }
 
