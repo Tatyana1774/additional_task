@@ -13,16 +13,17 @@ Console.WriteLine("Введите число от 0 до 10: ");
       int number = Convert.ToInt32(Console.ReadLine());
       if (number == randomNumber)
       {
-      Console.WriteLine($"Вы угадали c {attempts} попытки");
+      Console.WriteLine($"Вы угадали");
+      break;
       }
       else if(number > randomNumber)
       {
-      Console.WriteLine("Ваше число больше");
+      Console.WriteLine($"Неверно! Загаданное число меньше, чем {number}");
       break;
       }
       else
       {
-      Console.WriteLine("Ваше число меньше");
+      Console.WriteLine($"Неверно! Загаданное число больше, чем {number}");
       break;
       }
         if (i == attempts)
@@ -32,9 +33,9 @@ Console.WriteLine("Введите число от 0 до 10: ");
         }
         if(number != randomNumber)
         {
-        Console.WriteLine($"Неверно! Осталось попыток: {attempts - i}");
+        Console.WriteLine($"Осталось попыток: {attempts - i}");
         Convert.ToInt32(Console.ReadLine());
         break;
         }
-    
       }
+
