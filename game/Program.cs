@@ -7,7 +7,6 @@ int attempts = 3;
 Console.WriteLine($"Количество попыток {attempts}");
 
 for(int i = 1; i <= attempts; i++)
-while (true)
 {
 Console.WriteLine("Введите число");
 int number = Convert.ToInt32(Console.ReadLine());
@@ -20,12 +19,10 @@ return;
     else if (number > randomNumber)
     {
     Console.WriteLine($"Неверно! Загаданное число меньше, чем {number}! Осталось попыток: {attempts-i}");
-    break;
     }
     else
     {
     Console.WriteLine($"Неверно! Загаданное число больше, чем {number}!  Осталось попыток: {attempts-i}");
-    break;
     }
 }
 
