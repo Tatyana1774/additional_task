@@ -4,7 +4,7 @@
 Console.WriteLine("Введите число от 0 до 10: ");
 int randomNumber = new Random().Next(0, 10);
 int attempts = 3;  
-Console.WriteLine($"Колличество попыток {attempts}");
+Console.WriteLine($"Количество попыток {attempts}");
 
 for(int i = 1; i <= attempts; i++)
 while (true)
