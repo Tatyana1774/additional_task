@@ -5,9 +5,8 @@ SetPassword – Установить пароль
 Exit – выход
 WriteName – вывести имя после ввода пароля*/
 
-Help();
-string? UserName = null;
-string? SetPassword = null;
+string? userName = null;
+string? setPassword = null;
 string? userForm = ReadInt("Введите команду -> ");
 
 string ReadInt(string text)
@@ -16,73 +15,67 @@ Console.Write(text);
 return Console.ReadLine().ToLower();
 }
 
+void help()
+{
+  Console.WriteLine();
+  Console.WriteLine("Список команд ");
+  Console.WriteLine("setname - установить имя ");
+  Console.WriteLine("setpassword – установить пароль ");
+  Console.WriteLine("writeName – вывести имя после ввода пароля ");
+  Console.WriteLine("help – вывести список команд ");
+  Console.WriteLine("exit – выход ");
+  Console.WriteLine();
+  userForm = ReadInt("Введите команду -> ");
+ }
+
+
 while(userForm != "exit")
 {
   switch(userForm)
   {
     case "help":
-    Commands();
-    break;
-    case "setname":
-    UserName = ReadInt("Введите ваше имя -> ");
-    Console.WriteLine("Пользователь создан");
-    Console.WriteLine();
-    userForm = ReadInt("Введите команду -> ");
-    break;
-    case "setpassword":
-    SetPassword = ReadInt("Придумайте пароль -> ");
-    Console.WriteLine("Пароль создан");
-    Console.WriteLine();
-    userForm = ReadInt("Введите команду -> ");
-    break;
-    case "writename":
-    string checkPass = ReadInt("Введите ваш пароль -> ");
-    Console.WriteLine();
-    if(checkPass == SetPassword)
-    {
-      if(UserName == null)
-      {
-        Console.WriteLine("Вы не задали имя");
-        Console.WriteLine("Чтобы задать имя, напишите команду SetName");
-        Console.WriteLine();
-        userForm = ReadInt("Введите команду -> ");
-      }
-      else
-      {
-        Console.WriteLine($"UserName = {UserName}");
-        Console.WriteLine($"SetPassword = {SetPassword}");
-        Console.WriteLine();
-        userForm = ReadInt("Введите команду -> ");
-      }
-    }
-    else
-    {
-      Console.WriteLine("Пароль неверный или нет имени!");
-      Console.WriteLine();
+      help();
+      break;
+    
+    case "userform":
       userForm = ReadInt("Введите команду -> ");
-    }
-    break;
+      break;
+      
+    case "setname":
+      userName = ReadInt("Введите ваше имя -> ");
+      Console.WriteLine("Пользователь создан");
+      Console.WriteLine();
+      goto case "userform";
+
+    case "setpassword":
+      setPassword = ReadInt("Придумайте пароль -> ");
+      Console.WriteLine("Пароль создан");
+      Console.WriteLine();
+      goto case "userform";
+
+    case "writename":
+      if(setPassword != null && userName != null)
+      {
+         Console.WriteLine($"userName = {userName}");
+           Console.WriteLine($"setPassword = {setPassword}");
+           Console.WriteLine();
+           goto case "userform";
+      }
+        {
+          Console.WriteLine("Вы не задали имя или пароль");
+          Console.WriteLine("Чтобы задать новый пароль, напишите команду setpassword, чтобы задать имя, напишите команду setname  !");
+          goto case "userform";
+        }
+        break;
     default:
     Console.WriteLine($"{userForm} - такой команды не существует!");
-    Commands();
+    help();
     break;
-  }
+    }
 }
-Console.WriteLine("До свидания!");
-void Commands()
-{
-  Console.WriteLine();
-  Console.WriteLine("Список команд ");
-  Console.WriteLine("SetName - установить имя ");
-  Console.WriteLine("SetPassword – установить пароль ");
-  Console.WriteLine("WriteName – вывести имя после ввода пароля ");
-  Console.WriteLine("Help – вывести список команд ");
-  Console.WriteLine("Exit – выход ");
-  Console.WriteLine();
-  userForm = ReadInt("Введите команду -> ");
- }
- 
- void Help()
- {
-  Console.WriteLine("Для вывода списка команд наберите help");
- }
+Console.WriteLine("до свидания!");
+
+
+
+
+
