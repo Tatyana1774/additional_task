@@ -56,10 +56,15 @@ while(userForm != "exit")
     case "writename":
       if(setPassword != null && userName != null)
       {
-         Console.WriteLine($"userName = {userName}");
+        string checkPass = ReadInt("Введите ваш пароль -> ");
+        Console.WriteLine();
+        if(checkPass == setPassword)
+        {
+          Console.WriteLine($"userName = {userName}");
            Console.WriteLine($"setPassword = {setPassword}");
            Console.WriteLine();
            goto case "userform";
+        }
       }
         {
           Console.WriteLine("Вы не задали имя или пароль");
