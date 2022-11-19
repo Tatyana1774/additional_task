@@ -33,4 +33,3 @@ while (number != "exit")
 Console.Write("Для выхода напиши exit :-) -> ");
 number = Console.ReadLine();
 }
-
