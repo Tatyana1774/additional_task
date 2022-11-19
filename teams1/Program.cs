@@ -67,8 +67,8 @@ while(userForm != "exit")
         }
       }
         {
-          Console.WriteLine("Вы не задали имя или пароль");
-          Console.WriteLine("Чтобы задать новый пароль, напишите команду setpassword, чтобы задать имя, напишите команду setname  !");
+          Console.WriteLine("Вы задали неправильный пароль");
+          Console.WriteLine("Чтобы задать новый пароль, напишите команду setpassword  !");
           goto case "userform";
         }
         break;
