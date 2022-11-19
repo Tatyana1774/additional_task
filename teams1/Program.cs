@@ -54,33 +54,45 @@ while(userForm != "exit")
       goto case "userform";
 
     case "writename":
-      if(setPassword != null && userName != null)
+    {
+      if(setPassword == null ||userName == null)
       {
-        string checkPass = ReadInt("Введите ваш пароль -> ");
-        Console.WriteLine();
-        if(checkPass == setPassword)
+        if(setPassword == null)
         {
-          Console.WriteLine($"userName = {userName}");
-           Console.WriteLine($"setPassword = {setPassword}");
-           Console.WriteLine();
-           goto case "userform";
-        }
-      }
-        {
-          Console.WriteLine("Вы задали неправильный пароль");
-          Console.WriteLine("Чтобы задать новый пароль, напишите команду setpassword  !");
+         Console.WriteLine("Вы не задали пароль");
+         Console.WriteLine("Чтобы задать новый пароль, напишите команду setpassword !");
           goto case "userform";
         }
-        break;
+        {
+          Console.WriteLine("Вы не задали имя");
+          Console.WriteLine("чтобы задать имя, напишите команду setname !");
+          goto case "userform";
+        }
+      }
+      if(setPassword != null && userName != null)
+      {
+         string checkPass = ReadInt("Введите ваш пароль -> ");
+         Console.WriteLine();
+         if(checkPass == setPassword)
+              {
+                Console.WriteLine($"userName = {userName}");
+                Console.WriteLine($"setPassword = {setPassword}");
+                Console.WriteLine();
+                goto case "userform";
+              }
+              {
+                Console.WriteLine("Вы указали неверный пароль");
+                Console.WriteLine("Чтобы задать новый пароль, напишите команду setpassword !");
+               goto case "userform";
+              }
+      }
+   }    
+    break;
     default:
     Console.WriteLine($"{userForm} - такой команды не существует!");
     help();
     break;
-    }
 }
+}
+
 Console.WriteLine("до свидания!");
-
-
-
-
-
